@@ -22,16 +22,21 @@ public class IntegrationClass {
 	 * #server.context-path=/rickClass
 	 */
 	/**
-	 * rickClassServiceUrl = "http://localhost:8080/rickClass/rest/age/125/height/3'8%22/wheight/74/tobaccoUser/no/tobaccoLastUsed/0"
-	 * @param rickClassServiceUrl
-	 * @return
-	 */
-		private String getRickClass(String rickClassServiceUrl)
-		{
-		    RestTemplate restTemplate = new RestTemplate();
-		    String rickClass = restTemplate.getForObject(rickClassServiceUrl, String.class);
-			return rickClass;
-		}
-	
+ * rickClassServiceUrl = "http://localhost:8080/rickClass/rest/age/125/height/3'8%22/wheight/74/tobaccoUser/no/tobaccoLastUsed/0"
+ * @param rickClassServiceUrl
+ * @return
+ */
+	private String getRickClass(String rickClassServiceUrl)
+	{
+	    RestTemplate restTemplate = new RestTemplate();
+	    SubmitResckClassAPIRequest SubmitResckClassAPIRequest=new SubmitResckClassAPIRequest();
+	    //set the values
+	    HttpHeaders headers = new HttpHeaders();
+	    headers.setContentType(MediaType.APPLICATION_JSON);
+	    HttpEntity<SubmitResckClassAPIRequest> requestEntity =   new HttpEntity<>(payload, headers);
+	    String response = restTemplate.exchange("url", HttpMethod.POST, requestEntity,String.class);
+	    String rickClass = restTemplate.getForObject(rickClassServiceUrl, String.class);
+		return rickClass;
+	}
 
 }
