@@ -25,7 +25,7 @@ import com.thrivent.riskclass.service.RiskClassService;
 @Service
 public class RiskClassImpl implements RiskClassService {
 	
-	
+	//https://howtodoinjava.com/spring-boot2/read-file-from-resources/
 	@Autowired
 	ResourceLoader resourceLoader;
 
