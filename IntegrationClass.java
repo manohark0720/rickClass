@@ -191,12 +191,9 @@ public class RiskClassImpl implements RiskClassService {
 
 	}
 
-	
 	public String getFileLocation(String fileName) throws Exception {
-		 Resource resource = resourceLoader.getResource("classpath:/static/"+fileName+".csv");
-		 return resource.getFile().getAbsolutePath();
-
-
+		File file=new File("../src/main/resources/static/"+fileName+".csv");
+		return file.getAbsolutePath();
 	}
 /**
  * rickClassServiceUrl = "http://localhost:8080/rickClass/rest/age/125/height/3'8%22/wheight/74/tobaccoUser/no/tobaccoLastUsed/0"
